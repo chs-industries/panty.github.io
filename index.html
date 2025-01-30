@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> PantyCoin AI</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+        .top-bar {
+            background: linear-gradient(90deg, #ff69b4, #ff1493);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .countdown-box {
+            background: black;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            min-width: 250px;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        .social-links a {
+            color: black;
+            font-size: 1.2em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        header {
+            background-color: #ff1493;
+            padding: 5px 5px;
+            font-size: 1.0em;
+        }
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.0em;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        .menu-links {
+            display: flex;
+            justify-content: center;
+        }
+        @media (max-width: 1060px) {
+            .menu-toggle {
+                display: block;
+                text-align: right;
+                padding: 10px;
+            }
+            .menu-links {
+                display: none;
+                flex-direction: column;
+                background: black;
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 60px;
+                z-index: 99;
+            }
+            .menu-links a {
+                padding: 10px;
+                background: black;
+
+                text-align: center;
+                display: block;
+            }
+            .menu-active {
+                display: flex;
+            }
+            .top-bar {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="countdown-box" id="countdownTimer"></div>
+        <div class="social-links">
+            <a href="https://t.me/pantycoinAI" target="_blank">Telegram</a>
+            <a href="https://x.com/PantyCoinAI?mx=2" target="_blank">X</a>
+            <a href="https://discord.gg/psNK7PR5" target="_blank">Discord</a>
+        </div>
+    </div>
+
+    <header>
+        <h1>PantyCoin AI </h1>
+        <p>Decentralizing Delicates with AI</p>
+    </header>
+
+
+    <nav>
+
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="menu-links">
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#characters">Characters</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#tokenomics">Tokenomics</a>
+            <a href="#faq">FAQ</a>
+            <a href="#whitepaper">Whitepaper</a>
+            <a href="#community">Community</a>
+        </div>
+
+          <div class="icon-card">
+            <img src="images/icon.png" alt="Mr. Panty">
+        </div>
+
+        </nav>
+
+    <!-- Additional sections will be added here -->
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.menu-links').classList.toggle('menu-active');
+        }
+
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const nextSunday = new Date("2025-02-03T00:00:00Z");
+           const timeDiff=nextSunday-now;
+if(timeDiff<0){
+document.getElementById('countdownTimer').innerHTML =
+                `${0}d ${0}h ${0}m ${0}s`;
+return;
+}
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+document.getElementById('countdownTimer').innerHTML =
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PantyCoin AI</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+        .top-bar {
+            background: linear-gradient(90deg, #ff69b4, #ff1493);
+            padding: 15px;
+            position: sticky;
+            top: 0px;
+            z-index: 50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .countdown-box {
+            background: black;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            position: sticky;
+            top: 0px;
+            left:160px;
+            font-size: 1.5em;
+            min-width: 150px;
+        }
+        .social-links a {
+            color: black;
+            font-size: 1.2em;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        header {
+            background-color: #ff0093;
+            padding: 30px 20px;
+            font-size: 1.2em;
+        }
+        nav {
+            background-color: none;
+            padding: 10px;
+            position: sticky;
+            top: 70px;
+            z-index: 100;
+        }
+        nav a {
+            color:  #ff69b4;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        nav a:hover {
+            color: white;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .menu-links {
+            display: flex;
+            justify-content: center;
+        }
+        .dynamic-text-container {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+        .dynamic-text {
+            color: #ff69b4;
+            border-right: 2px solid white;
+            display: inline-block;
+            text-align: left;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .feature-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #222;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        @media (max-width: 1060px) {
+            .menu-toggle {
+                display: block;
+                text-align: right;
+                padding: 10px;
+            }
+            .menu-links {
+                display: none;
+                flex-direction: column;
+                background: #ff69b4;
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 60px;
+                z-index: 99;
+            }
+            .menu-links a {
+                padding: 10px;
+                text-align: center;
+                display: block;
+            }
+            .menu-active {
+                display: flex;
+            }
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+    <section id="about">
+
+        <div class="dynamic-text-container">
+            <span>Pantycoin is </span>
+            <span class="dynamic-text" id="dynamicText"></span>
+        </div>
+          <p>Welcome to Pantycoin AI, the next evolution in AI-powered blockchain solutions.</p>
+          <p> Our mission is simple: to revolutionize the intimate apparel marketplace with cutting-edge AI and decentralization.</p>
+
+    </section>
+
+<section id="characters">
+    <h2>Characters</h2>
+    <h3>Meet the PantyCoin Family</h3>
+    <div class="characters-container">
+        <div class="character-card">
+            <img src="images/mr-panty.png" alt="Mr. Panty">
+            <h3>Mr. Panty</h3>
+            <p>A dapper gentleman who loves decentralization and tasteful lingerie. Mr. Panty represents sophistication and style in the crypto world.</p>
+        </div>
+        <div class="character-card">
+            <img src="images/miss-panty.png" alt="Miss Panty">
+            <h3>Miss Panty</h3>
+            <p>A savvy entrepreneur bringing elegance and style to the marketplace. She’s the queen of decentralization and innovation.</p>
+        </div>
+        <div class="character-card">
+            <img src="images/mx-panty.png" alt="Mx. Panty">
+            <h3>Mx. Panty</h3>
+            <p>A bold, unisex character inspired by SpongeBob, celebrating inclusivity and fabulousness. Mx. Panty is for everyone and anyone!</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    #meme-characters {
+        padding: 50px 20px;
+        background-color: #1a1a1a;
+        text-align: center;
+    }
+
+    #meme-characters h2 {
+        font-size: 2.5em;
+        color: #ff69b4;
+        margin-bottom: 20px;
+    }
+
+    .characters-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+        .icon-card {
+        background: none;
+        position: absolute;
+        top: -50px;
+        border-radius: 0px;
+        width: 100px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+    }
+   .icon-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 0px;
+        margin-bottom: 0px;
+    }
+    .character-card {
+        background: #2a2a2a;
+        padding: 20px;
+        border-radius: 10px;
+        width: 250px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+    }
+
+    .character-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 5px 15px rgba(255, 105, 180, 0.4);
+    }
+
+    .character-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    .character-card h3 {
+        color: #ff69b4;
+        margin-bottom: 10px;
+    }
+
+    .character-card p {
+        color: #d3d3d3;
+        font-size: 0.95em;
+        line-height: 1.5;
+    }
+</style>
+    <script>
+        function toggleMenu() {
+            document.querySelector('.menu-links').classList.toggle('menu-active');
+        }
+
+        // Typing Effect for Changing Text
+        const dynamicText = document.getElementById('dynamicText');
+        const phrases = [": humor.", ": a lifestyle.", ": unpredictable.", ": fun.", ": anonymous.", ": untraceable.", ": wildfire!", ": revolutionary.", ": secure.", ": AI-driven.", ": unstoppable.", ": the future!"];
+        let phraseIndex = 0;
+        let letterIndex = 0;
+        let typingSpeed = 100;
+        let erasingSpeed = 50;
+        let isTyping = true;
+
+        function typeText() {
+            if (isTyping) {
+                if (letterIndex < phrases[phraseIndex].length) {
+                    dynamicText.innerHTML += phrases[phraseIndex][letterIndex];
+                    letterIndex++;
+                    setTimeout(typeText, typingSpeed);
+                } else {
+                    isTyping = false;
+                    setTimeout(eraseText, 2000);
+                }
+            }
+        }
+
+        function eraseText() {
+            if (!isTyping) {
+                if (letterIndex > 0) {
+                    dynamicText.innerHTML = dynamicText.innerHTML.slice(0, -1);
+                    letterIndex--;
+                    setTimeout(eraseText, erasingSpeed);
+                } else {
+                    isTyping = true;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    setTimeout(typeText, 500);
+                }
+            }
+        }
+
+        typeText();
+
+     
+    </script>
+
+
+<style>
+    #about {
+        padding: 50px 20px;
+        background-color: #1a1a1a;
+    }
+    #about h2 {
+        font-size: 2.5em;
+        color: #ff69b4;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    #characters {
+        padding: 50px 20px;
+        background-color: #1a1a1a;
+    }
+    #characters h2 {
+        font-size: 2.5em;
+        color: #ff69b4;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    #features {
+        padding: 50px 20px;
+        background-color: #1a1a1a;
+    }
+    #features h2 {
+        font-size: 2.5em;
+        color: #ff69b4;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .feature-box {
+        background: #2a2a2a;
+        padding: 20px;
+        margin: 15px auto;
+        border-radius: 10px;
+        max-width: 600px;
+        text-align: left;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-box h3 {
+        color: #ff1493;
+        margin-bottom: 10px;
+    }
+    .feature-box p {
+        color: #d3d3d3;
+        line-height: 1.6;
+        display: inline;
+    }
+    .expand-btn {
+        background: none;
+        border: none;
+        color: #ff69b4;
+        font-size: 1.2em;
+        cursor: pointer;
+        font-weight: bold;
+        margin-left: 5px;
+    }
+    .expand-btn:hover {
+        color: #ff1493;
+    }
+    .extra-content {
+        display: none;
+        margin-top: 10px;
+        color: #bbb;
+        font-size: 0.9em;
+        line-height: 1.5;
+    }
+</style>
+
+<script>
+    document.querySelectorAll(".expand-btn").forEach(button => {
+        button.addEventListener("click", function() {
+            let content = this.nextElementSibling;
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+                this.textContent = "<<"; // Change button text when expanded
+            } else {
+                content.style.display = "none";
+                this.textContent = ">>"; // Reset button text when collapsed
+            }
+        });
+    });
+</script>
+<section id="features">
+    <h2>Features</h2>
+
+    <div class="feature-box">
+        <h3>AI-Powered Personalization</h3>
+        <p>Advanced AI algorithms match buyers and sellers...</p>
+        <button class="expand-btn">More</button>
+        <div class="extra-content">
+            <p>Our AI analyzes user preferences, browsing history, and trending styles to curate personalized suggestions. This ensures a seamless buying experience while increasing seller conversions.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <h3>Dynamic Pricing Engine</h3>
+        <p>Automated market-driven price optimization...</p>
+        <button class="expand-btn">More</button>
+        <div class="extra-content">
+            <p>Prices fluctuate based on demand, popularity, and rarity. Our AI tracks real-time supply-demand shifts to ensure fair pricing while maximizing profitability.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <h3>Enhanced Privacy & Security</h3>
+        <p>Blockchain-powered anonymity for every transaction...</p>
+        <button class="expand-btn">More</button>
+        <div class="extra-content">
+            <p>Our platform utilizes zero-knowledge proofs (zk-SNARKs) and secure smart contracts to provide complete transaction privacy, ensuring users stay anonymous without compromising trust.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <h3>Sustainability Intelligence</h3>
+        <p>Eco-conscious AI recommendations...</p>
+        <button class="expand-btn">More</button>
+        <div class="extra-content">
+            <p>We encourage sustainable shopping by analyzing carbon footprints, material sourcing, and promoting ethical trading through an AI-powered verification system.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <h3>Community Engagement</h3>
+        <p>Sentiment-driven decisions for a strong community...</p>
+        <button class="expand-btn">More</button>
+        <div class="extra-content">
+            <p>Our AI scans social media discussions, polls, and interactions to ensure the project evolves in a community-driven manner. Users can vote on major updates through decentralized governance.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <h3>Exclusive NFT Utility</h3>
+        <p>Collect, trade, and use NFTs with real utility...</p>
+        <button class="expand-btn">More</button>
+        <div class="extra-content">
+            <p>Unique AI-generated NFTs unlock premium platform benefits, VIP access to limited-edition drops, and stakeable assets for passive income.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <h3>Decentralized Governance</h3>
+        <p>Community-driven decision-making...</p>
+        <button class="expand-btn">More</button>
+        <div class="extra-content">
+            <p>Token holders have voting rights on platform developments, ensuring that the evolution of PantyCoin AI aligns with the community's interests and desires.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <h3>Global Marketplace Access</h3>
+        <p>Borderless trading platform...</p>
+        <button class="expand-btn">More</button>
+        <div class="extra-content">
+            <p>Our platform connects buyers and sellers from around the world, facilitating international transactions with automatic currency conversions and language translations.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <h3>AI-Driven Fraud Detection</h3>
+        <p>Ensuring a secure trading environment...</p>
+        <button class="expand-btn">More</button>
+        <div class="extra-content">
+            <p>Advanced AI monitors transactions for suspicious activities, providing real-time alerts and ensuring the integrity of the marketplace.</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <h3>Seamless Payment Integration</h3>
+        <p>Multiple payment options for user convenience...</p>
+        <button class="expand-btn">More</button>
+        <div class="extra-content">
+            <p>Supports various cryptocurrencies and traditional payment methods, offering flexibility and ease of use for all participants.</p>
+        </div>
+    </div>
+
+</section>
+
+<style>
+    #features {
+        padding: 50px 20px;
+        background-color: #1a1a1a;
+    }
+    #features h2 {
+        font-size: 2.5em;
+        color: #ff69b4;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .feature-box {
+        background: #2a2a2a;
+        padding: 20px;
+        margin: 15px auto;
+        border-radius: 10px;
+        max-width: 600px;
+        text-align: left;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-box h3 {
+        color: #ff1493;
+        margin-bottom: 10px;
+    }
+    .feature-box p {
+        color: #d3d3d3;
+        line-height: 1.6;
+    }
+    .expand-btn {
+        background: none;
+        border: none;
+        color: #ff69b4;
+        font-size: 1em;
+        cursor: pointer;
+        font-weight: bold;
+        display: block;
+        text-align: right;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .expand-btn:hover {
+        color: #ff1493;
+    }
+    .extra-content {
+        display: none;
+        margin-top: 10px;
+        color: #bbb;
+        font-size: 0.9em;
+        line-height: 1.5;
+    }
+</style>
+
+<script>
+    document.querySelectorAll(".expand-btn").forEach(button => {
+        button.addEventListener("click", function() {
+            let content = this.nextElementSibling;
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+                this.textContent = "Less"; // Change button text when expanded
+            } else {
+                content.style.display = "none";
+                this.textContent = "More"; // Reset button text when collapsed
+            }
+        });
+    });
+</script>
+<section id="roadmap">
+    <h2>Roadmap</h2>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-date">Q1 2025</div>
+            <div class="timeline-content">
+                <h3>Platform Development</h3>
+                <p><strong>AI Integration:</strong> Implement AI-driven personalization and pricing.</p>
+                <p><strong>Security Enhancements:</strong> Blockchain-based privacy for secure transactions.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">Q2 2025</div>
+            <div class="timeline-content">
+                <h3>Beta Launch</h3>
+                <p><strong>Community Engagement:</strong> Interactive events and community-driven decisions.</p>
+                <p><strong>Feature Rollout:</strong> NFT marketplace & decentralized governance launch.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">Q3 2025</div>
+            <div class="timeline-content">
+                <h3>Official Launch</h3>
+                <p><strong>Global Expansion:</strong> Multi-language support for international adoption.</p>
+                <p><strong>Partnerships:</strong> Strategic collaborations to enhance user experience.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">Q4 2025</div>
+            <div class="timeline-content">
+                <h3>Continuous Improvement</h3>
+                <p><strong>User Feedback Integration:</strong> Iterative updates based on community insights.</p>
+                <p><strong>Sustainability Initiatives:</strong> Eco-conscious marketplace optimizations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    #roadmap {
+        padding: 50px 20px;
+        background-color: #1a1a1a;
+        text-align: center;
+    }
+
+    #roadmap h2 {
+        font-size: 2.5em;
+        color: #ff69b4;
+        margin-bottom: 20px;
+    }
+
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        max-width: 700px;
+        margin: auto;
+    }
+
+    .timeline-item {
+        background: #2a2a2a;
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 10px;
+        width: 100%;
+        position: relative;
+        text-align: left;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .timeline-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 5px 15px rgba(255, 105, 180, 0.4);
+    }
+
+    .timeline-date {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ff1493;
+        color: white;
+        padding: 5px 15px;
+        font-weight: bold;
+        border-radius: 20px;
+    }
+
+    .timeline-content h3 {
+        color: #ff69b4;
+        margin-bottom: 10px;
+    }
+
+    .timeline-content p {
+        color: #d3d3d3;
+        font-size: 0.95em;
+        line-height: 1.5;
+        margin-bottom: 5px;
+    }
+</style>
+<section id="tokenomics">
+    <h2>Tokenomics</h2>
+
+    <div class="tokenomics-content">
+        <div class="chart-container">
+            <canvas id="tokenomicsChart"></canvas>
+        </div>
+        <div class="token-details">
+            <p><strong>Total Supply:</strong> 1,000,000,000,000 PANTY</p>
+            <ul>
+                <li><span class="legend-color" style="background-color: #ff69b4;"></span> <strong>50%:</strong> Liquidity Pool</li>
+                <li><span class="legend-color" style="background-color: #ff1493;"></span> <strong>20%:</strong> Community Rewards</li>
+                <li><span class="legend-color" style="background-color: #ff85b4;"></span> <strong>15%:</strong> Development Fund</li>
+                <li><span class="legend-color" style="background-color: #ffb3c6;"></span> <strong>10%:</strong> Marketing</li>
+                <li><span class="legend-color" style="background-color: #ffc1d1;"></span> <strong>5%:</strong> Team Allocation</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style>
+    #tokenomics {
+        padding: 50px 20px;
+        background-color: #1a1a1a;
+        text-align: center;
+    }
+
+    #tokenomics h2 {
+        font-size: 2.5em;
+        color: #ff69b4;
+        margin-bottom: 20px;
+    }
+
+    .tokenomics-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chart-container {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+
+    .token-details {
+        color: #d3d3d3;
+        text-align: left;
+    }
+
+    .token-details p {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .token-details ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .token-details li {
+        font-size: 1em;
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .legend-color {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
+        border-radius: 3px;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('tokenomicsChart').getContext('2d');
+    const tokenomicsChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Liquidity Pool', 'Community Rewards', 'Development Fund', 'Marketing', 'Team Allocation'],
+            datasets: [{
+                data: [50, 20, 15, 10, 5],
+                backgroundColor: ['#ff69b4', '#ff1493', '#ff85b4', '#ffb3c6', '#ffc1d1'],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const label = context.label || '';
+                            const value = context.raw || 0;
+                            return `${label}: ${value}%`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+
+<section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-container">
+        
+        <div class="faq-item">
+            <button class="faq-question">What is PantyCoin? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>PantyCoin is the most stylish, fun, and community-driven cryptocurrency, designed to bring humor, fashion, and decentralized finance together.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How can I buy PantyCoin? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>You can purchase PantyCoin through decentralized exchanges (DEXs) such as Uniswap and PancakeSwap. Simply connect your wallet, swap your preferred crypto, and enjoy!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Is PantyCoin a serious investment? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>While PantyCoin is a meme coin, it has strong community support and a fun ecosystem. Always do your research before investing in any cryptocurrency!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What makes PantyCoin unique? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>PantyCoin blends humor, pop culture, and blockchain technology with a vibrant community and unique use cases. Plus, it's the first fashion-oriented meme coin!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Where can I follow PantyCoin updates? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>Join our community on Telegram, Discord, and follow us on X (Twitter) for the latest news and announcements!</p>
+            </div>
+        </div>
+
+
+        <!-- New FAQ items -->
+        <div class="faq-item">
+            <button class="faq-question">What is PantyCoin AI? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>PantyCoin AI is the natural evolution of PantyCoin, combining artificial intelligence with blockchain technology to revolutionize how people buy, sell, and interact in the used panty marketplace. It offers anonymous, secure, and efficient transactions with a touch of humor.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Why pair AI with blockchain for this market? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>Integrating AI with blockchain ensures a tailored and user-friendly experience by matching buyers and sellers based on preferences, optimizing eco-friendly options, and streamlining transactions. This combination provides enhanced security, anonymity, and efficiency.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Who are the faces of PantyCoin AI? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>The PantyVerse features three iconic characters:
+                    <ul>
+                        <li><strong>Mr. Panty:</strong> The blockchain maestro with a flair for elegant intimacy.</li>
+                        <li><strong>Miss Panty:</strong> A visionary entrepreneur setting trends in AI-driven finance.</li>
+                        <li><strong>Mx. Panty:</strong> The non-binary face of inclusivity, technology, and sass.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Is PantyCoin AI a joke? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>While PantyCoin AI embraces humor, the technology behind it is serious. It offers AI matching for personalized pairings, blockchain privacy with zk-SNARKs, smart contracts for secure transactions, and sustainability features driven by AI insights.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How does PantyCoin AI work? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>PantyCoin AI operates in four simple steps:
+                    <ol>
+                        <li><strong>Discover:</strong> AI connects buyers and sellers based on preferences.</li>
+                        <li><strong>Transact:</strong> Blockchain secures and anonymizes the payment process.</li>
+                        <li><strong>Ship:</strong> The product is delivered with complete discretion.</li>
+                        <li><strong>Review:</strong> AI improves the experience with feedback loops.</li>
+                    </ol>
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What sets PantyCoin AI apart from other crypto projects? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>Unlike other memecoins, PantyCoin AI combines utility with humor. It integrates cutting-edge AI, real-world applications, and a commitment to privacy, sustainability, and inclusivity, going beyond mere speculative trading.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How does PantyCoin AI protect privacy? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>PantyCoin AI prioritizes user privacy through:
+                    <ul>
+                        <li><strong>Zero-Knowledge Proofs:</strong> Ensuring confidential transactions without revealing personal data.</li>
+                        <li><strong>Decentralized Wallets:</strong> Allowing trades without linking to real-world identities.</li>
+                        <li><strong>Secure Blockchain:</strong> Providing transparency without compromising discretion.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How does PantyCoin contribute to sustainability? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>PantyCoin champions sustainability by promoting the circular economy. Each transaction prevents textile waste by recycling intimate apparel, saving resources like cotton, water, and energy. Join us in reducing the global carbon footprint—one panty at a time!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What is PantyCoin’s AI vision? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>PantyCoin integrates AI to revolutionize how intimate apparel is traded, tracked, and personalized. Our vision includes:
+                    <ul>
+                        <li><strong>Personalized Recommendations:</strong> AI-driven algorithms to match buyers with unique items based on their preferences and past transactions.</li>
+                        <li><strong>Fraud Prevention:</strong> Advanced AI models to ensure authenticity and eliminate counterfeit trades.</li>
+                        <li><strong>Dynamic Pricing:</strong> Real-time analytics to suggest optimal pricing for buyers and sellers, creating a fair and efficient marketplace.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How does AI enhance the PantyCoin ecosystem? <span class="toggle-icon">+</span></button>
+            <div class="faq-answer">
+                <p>AI is central to PantyCoin’s mission of creating a seamless, intelligent ecosystem. Key enhancements include:
+                    <ul>
+                        <li><strong>Blockchain Optimization:</strong> AI-powered solutions for faster, more secure transactions.</li>
+                        <li><strong>Community Insights:</strong> Using AI to analyze user feedback and trends, ensuring the platform evolves with its community.</li>
+                        <li><strong>Sustainability Analytics:</strong> AI tools to calculate and report the environmental impact of each transaction, reinforcing PantyCoin’s commitment to eco-friendly practices.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+
+<style>
+    #faq {
+        padding: 50px 20px;
+        background-color: #1a1a1a;
+        text-align: center;
+    }
+
+    #faq h2 {
+        font-size: 2.5em;
+        color: #ff69b4;
+        margin-bottom: 20px;
+    }
+
+    .faq-container {
+        max-width: 700px;
+        margin: auto;
+        text-align: left;
+    }
+
+    .faq-item {
+        background: #2a2a2a;
+        margin: 10px 0;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        background: none;
+        color: #ff69b4;
+        font-size: 1.2em;
+        padding: 15px;
+        text-align: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.3s ease;
+    }
+
+    .faq-question:hover {
+        background: #ff1493;
+    }
+
+    .toggle-icon {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        background: #333;
+        padding: 0 15px;
+        color: #d3d3d3;
+    }
+
+    .faq-answer p {
+        padding: 15px 0;
+        margin: 0;
+    }
+</style>
+
+<script>
+    document.querySelectorAll(".faq-question").forEach(button => {
+        button.addEventListener("click", function() {
+            const answer = this.nextElementSibling;
+            const icon = this.querySelector(".toggle-icon");
+
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                icon.textContent = "+";
+            } else {
+                document.querySelectorAll(".faq-answer").forEach(a => a.style.maxHeight = null);
+                document.querySelectorAll(".toggle-icon").forEach(i => i.textContent = "+");
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                icon.textContent = "−";
+            }
+        });
+    });
+</script>
+ 
+ <section id="whitepaper" style="background-color: black; padding: 30px; border: 1px solid #f78da7; border-radius: 10px; margin-top: 30px;">
+      <h2 style="text-align: center; color: white; font-size: 2em; margin-bottom: 20px;">Original PantyCoin White Paper</h2>
+      <p style="text-align: center; color: #444; font-size: 1.2em;">
+        Want to dive deeper into the vision and technical details of PantyCoin? Our white paper has all the juicy details, from market insights to tokenomics and privacy innovations.
+      </p>
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="pantycoin-whitepaper.pdf" target="_blank" style="background-color: #f78da7; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 1.2em;">
+          Read the White Paper
+        </a>
+      </div>
+      <div id="whitepaper-learn-more" style="display: none; margin-top: 20px; color: #444; font-size: 1em;">
+        <h3 style="color: #f78da7;">What’s Inside the White Paper?</h3>
+        <ul>
+          <li><strong>Market Opportunity:</strong> Insights into the booming multi-million-dollar used panty industry.</li>
+          <li><strong>Blockchain Technology:</strong> Privacy features like zk-SNARKs and secure smart contracts.</li>
+          <li><strong>Tokenomics:</strong> A detailed breakdown of PantyCoin’s supply, burn mechanism, and staking rewards.</li>
+          <li><strong>Roadmap:</strong> A phased plan for platform development, partnerships, and global adoption.</li>
+        </ul>
+        <p style="text-align: center; font-style: italic;">
+          “Whether you're
+      </p><div style="text-align: center; margin-top: 20px;">
+        </div></div></section>
+
+    <section id="community">
+        <h2>Join the Community</h2>
+        <p>Get involved in the future of AI-powered blockchain transactions.</p>
+        <a href="https://t.me/pantycoinAI">Join Telegram</a>
+        <p></p>
+        <a href="https://x.com/PantyCoinAI?mx=2">Follow on X</a>
+        <p></p>
+        <a href="https://discord.gg/psNK7PR5">Chat on Discord</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 PantyCoin AI. All Rights Reserved.</p>
+    </footer>
+
+
+
+</body>
+</html>
+
+
