@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> PantyCoin AI</title>
@@ -103,7 +103,7 @@
 <body>
 
     <div class="top-bar">
-        <div class="countdown-box" id="countdownTimer"></div>
+        <div class="countdown-box" id="countdownTimer">1d 2h 26m 4s</div>
         <div class="social-links">
             <a href="https://t.me/pantycoinAI" target="_blank">Telegram</a>
             <a href="https://x.com/PantyCoinAI?mx=2" target="_blank">X</a>
@@ -132,7 +132,7 @@
         </div>
 
           <div class="icon-card">
-            <img src="images/icon.png" alt="Mr. Panty">
+            <img src="index_files/icon.png" alt="Mr. Panty">
         </div>
 
         </nav>
@@ -165,11 +165,11 @@ document.getElementById('countdownTimer').innerHTML =
 
         setInterval(updateCountdown, 1000);
     </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
+
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PantyCoin AI</title>
@@ -302,6 +302,161 @@ document.getElementById('countdownTimer').innerHTML =
 
 
 
+<section id="token-info">
+
+    <!-- QR Code Above Buy Button -->
+    <div class="qr-code">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://pump.fun/coin/H1SUQtPUdxJ9qf95XovDWVy2GdmUgE7z2PeLUtBQpump"
+             alt="Buy QR Code">
+    </div>
+
+    <!-- Buy Now Button -->
+    <div class="buy-now">
+        <a href="https://pump.fun/coin/H1SUQtPUdxJ9qf95XovDWVy2GdmUgE7z2PeLUtBQpump" target="_blank">
+            <button class="primary-btn">Buy Now</button>
+        </a>
+    </div>
+
+    <!-- Toggle Contract Info (Text Only) -->
+    <p id="toggle-info" class="toggle-text">Show Contract Info</p>
+
+    <!-- Contract Info (Initially Hidden) -->
+    <div id="contract-details">
+        <div class="contract-address">
+            <label for="contractAddress">Contract Address:</label>
+            <input type="text" id="contractAddress" value="H1SUQtPUdxJ9qf95XovDWVy2GdmUgE7z2PeLUtBQpump" readonly>
+            <button onclick="copyContractAddress()" class="copy-btn">Copy</button>
+        </div>
+        <div class="explorer-links">
+            <p>View on Blockchain Explorer:</p>
+            <a href="https://solscan.io/account/H1SUQtPUdxJ9qf95XovDWVy2GdmUgE7z2PeLUtBQpump" target="_blank">Solscan</a> |
+            <a href="https://explorer.solana.com/address/H1SUQtPUdxJ9qf95XovDWVy2GdmUgE7z2PeLUtBQpump" target="_blank">Solana Explorer</a>
+        </div>
+        <div class="qr-code">
+            <p>Scan QR Code:</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=H1SUQtPUdxJ9qf95XovDWVy2GdmUgE7z2PeLUtBQpump" alt="Contract QR Code">
+        </div>
+    </div>
+</section>
+
+<script>
+    function copyContractAddress() {
+        var copyText = document.getElementById("contractAddress");
+        navigator.clipboard.writeText(copyText.value);
+        alert("Contract address copied: " + copyText.value);
+    }
+
+    document.getElementById("toggle-info").addEventListener("click", function () {
+        var contractDetails = document.getElementById("contract-details");
+        contractDetails.classList.toggle("expanded");
+        this.textContent = contractDetails.classList.contains("expanded") ? "Hide Contract Info" : "Show Contract Info";
+    });
+</script>
+
+<style>
+    /* General Styling */
+    #token-info {
+        text-align: center;
+        padding: 20px;
+        background: #1e1e1e;
+        color: white;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        margin: 20px auto;
+        width: 90%;
+        max-width: 500px;
+    }
+
+    /* Buy & Toggle Buttons */
+    .primary-btn {
+        background: linear-gradient(45deg, #ff007f, #ff3399);
+        color: white;
+        border: none;
+        padding: 12px 18px;
+        cursor: pointer;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease-in-out;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .primary-btn:hover {
+        background: linear-gradient(45deg, #ff3399, #ff007f);
+        transform: scale(1.05);
+    }
+
+    /* Toggle Text (No Frame, Just Clickable) */
+    .toggle-text {
+        color: #ff007f;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+        display: inline-block;
+        transition: opacity 0.3s ease-in-out;
+    }
+    .toggle-text:hover {
+        opacity: 0.7;
+    }
+
+    /* Contract Info Section */
+    #contract-details {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        opacity: 0;
+        margin-top: 10px;
+    }
+
+    #contract-details.expanded {
+        max-height: 400px;
+        opacity: 1;
+    }
+
+    /* Input & Copy Button */
+    .contract-address input {
+        border: 1px solid #ff3399;
+        padding: 10px;
+        width: 80%;
+        text-align: center;
+        font-size: 16px;
+        border-radius: 8px;
+        background: #282828;
+        color: white;
+        margin-top: 10px;
+    }
+
+    .copy-btn {
+        background: #ff007f;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: all 0.3s ease-in-out;
+        margin-top: 5px;
+    }
+
+    .copy-btn:hover {
+        background: #ff3399;
+    }
+
+    /* Explorer Links */
+    .explorer-links a {
+        color: #ff007f;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .explorer-links a:hover {
+        text-decoration: underline;
+    }
+
+    /* QR Codes */
+    .qr-code img {
+        margin-top: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 10px rgba(255, 0, 127, 0.5);
+    }
+</style>
 
 
 
@@ -325,17 +480,19 @@ document.getElementById('countdownTimer').innerHTML =
     <h3>Meet the PantyCoin Family</h3>
     <div class="characters-container">
         <div class="character-card">
-            <img src="images/mr-panty.png" alt="Mr. Panty">
+            <img src="index_files/mr-panty.png" alt="Mr. Panty">
             <h3>Mr. Panty</h3>
-            <p>A dapper gentleman who loves decentralization and tasteful lingerie. Mr. Panty represents sophistication and style in the crypto world.</p>
+            <p>A dapper gentleman who loves decentralization and 
+tasteful lingerie. Mr. Panty represents sophistication and style in the 
+crypto world.</p>
         </div>
         <div class="character-card">
-            <img src="images/miss-panty.png" alt="Miss Panty">
+            <img src="index_files/miss-panty.png" alt="Miss Panty">
             <h3>Miss Panty</h3>
             <p>A savvy entrepreneur bringing elegance and style to the marketplace. She’s the queen of decentralization and innovation.</p>
         </div>
         <div class="character-card">
-            <img src="images/mx-panty.png" alt="Mx. Panty">
+            <img src="index_files/mx-panty.png" alt="Mx. Panty">
             <h3>Mx. Panty</h3>
             <p>A bold, unisex character inspired by SpongeBob, celebrating inclusivity and fabulousness. Mx. Panty is for everyone and anyone!</p>
         </div>
@@ -549,7 +706,9 @@ document.getElementById('countdownTimer').innerHTML =
         <p>Advanced AI algorithms match buyers and sellers...</p>
         <button class="expand-btn">More</button>
         <div class="extra-content">
-            <p>Our AI analyzes user preferences, browsing history, and trending styles to curate personalized suggestions. This ensures a seamless buying experience while increasing seller conversions.</p>
+            <p>Our AI analyzes user preferences, browsing history, and 
+trending styles to curate personalized suggestions. This ensures a 
+seamless buying experience while increasing seller conversions.</p>
         </div>
     </div>
 
@@ -558,16 +717,20 @@ document.getElementById('countdownTimer').innerHTML =
         <p>Automated market-driven price optimization...</p>
         <button class="expand-btn">More</button>
         <div class="extra-content">
-            <p>Prices fluctuate based on demand, popularity, and rarity. Our AI tracks real-time supply-demand shifts to ensure fair pricing while maximizing profitability.</p>
+            <p>Prices fluctuate based on demand, popularity, and rarity.
+ Our AI tracks real-time supply-demand shifts to ensure fair pricing 
+while maximizing profitability.</p>
         </div>
     </div>
 
     <div class="feature-box">
-        <h3>Enhanced Privacy & Security</h3>
+        <h3>Enhanced Privacy &amp; Security</h3>
         <p>Blockchain-powered anonymity for every transaction...</p>
         <button class="expand-btn">More</button>
         <div class="extra-content">
-            <p>Our platform utilizes zero-knowledge proofs (zk-SNARKs) and secure smart contracts to provide complete transaction privacy, ensuring users stay anonymous without compromising trust.</p>
+            <p>Our platform utilizes zero-knowledge proofs (zk-SNARKs) 
+and secure smart contracts to provide complete transaction privacy, 
+ensuring users stay anonymous without compromising trust.</p>
         </div>
     </div>
 
@@ -576,7 +739,9 @@ document.getElementById('countdownTimer').innerHTML =
         <p>Eco-conscious AI recommendations...</p>
         <button class="expand-btn">More</button>
         <div class="extra-content">
-            <p>We encourage sustainable shopping by analyzing carbon footprints, material sourcing, and promoting ethical trading through an AI-powered verification system.</p>
+            <p>We encourage sustainable shopping by analyzing carbon 
+footprints, material sourcing, and promoting ethical trading through an 
+AI-powered verification system.</p>
         </div>
     </div>
 
@@ -585,7 +750,9 @@ document.getElementById('countdownTimer').innerHTML =
         <p>Sentiment-driven decisions for a strong community...</p>
         <button class="expand-btn">More</button>
         <div class="extra-content">
-            <p>Our AI scans social media discussions, polls, and interactions to ensure the project evolves in a community-driven manner. Users can vote on major updates through decentralized governance.</p>
+            <p>Our AI scans social media discussions, polls, and 
+interactions to ensure the project evolves in a community-driven manner.
+ Users can vote on major updates through decentralized governance.</p>
         </div>
     </div>
 
@@ -594,7 +761,9 @@ document.getElementById('countdownTimer').innerHTML =
         <p>Collect, trade, and use NFTs with real utility...</p>
         <button class="expand-btn">More</button>
         <div class="extra-content">
-            <p>Unique AI-generated NFTs unlock premium platform benefits, VIP access to limited-edition drops, and stakeable assets for passive income.</p>
+            <p>Unique AI-generated NFTs unlock premium platform 
+benefits, VIP access to limited-edition drops, and stakeable assets for 
+passive income.</p>
         </div>
     </div>
 
@@ -603,7 +772,9 @@ document.getElementById('countdownTimer').innerHTML =
         <p>Community-driven decision-making...</p>
         <button class="expand-btn">More</button>
         <div class="extra-content">
-            <p>Token holders have voting rights on platform developments, ensuring that the evolution of PantyCoin AI aligns with the community's interests and desires.</p>
+            <p>Token holders have voting rights on platform 
+developments, ensuring that the evolution of PantyCoin AI aligns with 
+the community's interests and desires.</p>
         </div>
     </div>
 
@@ -612,7 +783,9 @@ document.getElementById('countdownTimer').innerHTML =
         <p>Borderless trading platform...</p>
         <button class="expand-btn">More</button>
         <div class="extra-content">
-            <p>Our platform connects buyers and sellers from around the world, facilitating international transactions with automatic currency conversions and language translations.</p>
+            <p>Our platform connects buyers and sellers from around the 
+world, facilitating international transactions with automatic currency 
+conversions and language translations.</p>
         </div>
     </div>
 
@@ -621,7 +794,9 @@ document.getElementById('countdownTimer').innerHTML =
         <p>Ensuring a secure trading environment...</p>
         <button class="expand-btn">More</button>
         <div class="extra-content">
-            <p>Advanced AI monitors transactions for suspicious activities, providing real-time alerts and ensuring the integrity of the marketplace.</p>
+            <p>Advanced AI monitors transactions for suspicious 
+activities, providing real-time alerts and ensuring the integrity of the
+ marketplace.</p>
         </div>
     </div>
 
@@ -721,7 +896,7 @@ document.getElementById('countdownTimer').innerHTML =
             <div class="timeline-content">
                 <h3>Beta Launch</h3>
                 <p><strong>Community Engagement:</strong> Interactive events and community-driven decisions.</p>
-                <p><strong>Feature Rollout:</strong> NFT marketplace & decentralized governance launch.</p>
+                <p><strong>Feature Rollout:</strong> NFT marketplace &amp; decentralized governance launch.</p>
             </div>
         </div>
 
@@ -812,7 +987,7 @@ document.getElementById('countdownTimer').innerHTML =
 
     <div class="tokenomics-content">
         <div class="chart-container">
-            <canvas id="tokenomicsChart"></canvas>
+            <canvas id="tokenomicsChart" style="display: block; box-sizing: border-box; height: 300px; width: 300px;" width="300" height="300"></canvas>
         </div>
         <div class="token-details">
             <p><strong>Total Supply:</strong> 1,000,000,000,000 PANTY</p>
@@ -883,7 +1058,7 @@ document.getElementById('countdownTimer').innerHTML =
     }
 </style>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="index_files/chart.js"></script>
 <script>
     const ctx = document.getElementById('tokenomicsChart').getContext('2d');
     const tokenomicsChart = new Chart(ctx, {
@@ -924,28 +1099,36 @@ document.getElementById('countdownTimer').innerHTML =
         <div class="faq-item">
             <button class="faq-question">What is PantyCoin? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
-                <p>PantyCoin is the most stylish, fun, and community-driven cryptocurrency, designed to bring humor, fashion, and decentralized finance together.</p>
+                <p>PantyCoin is the most stylish, fun, and 
+community-driven cryptocurrency, designed to bring humor, fashion, and 
+decentralized finance together.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">How can I buy PantyCoin? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
-                <p>You can purchase PantyCoin through decentralized exchanges (DEXs) such as Uniswap and PancakeSwap. Simply connect your wallet, swap your preferred crypto, and enjoy!</p>
+                <p>You can purchase PantyCoin through decentralized 
+exchanges (DEXs) such as Uniswap and PancakeSwap. Simply connect your 
+wallet, swap your preferred crypto, and enjoy!</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">Is PantyCoin a serious investment? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
-                <p>While PantyCoin is a meme coin, it has strong community support and a fun ecosystem. Always do your research before investing in any cryptocurrency!</p>
+                <p>While PantyCoin is a meme coin, it has strong 
+community support and a fun ecosystem. Always do your research before 
+investing in any cryptocurrency!</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">What makes PantyCoin unique? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
-                <p>PantyCoin blends humor, pop culture, and blockchain technology with a vibrant community and unique use cases. Plus, it's the first fashion-oriented meme coin!</p>
+                <p>PantyCoin blends humor, pop culture, and blockchain 
+technology with a vibrant community and unique use cases. Plus, it's the
+ first fashion-oriented meme coin!</p>
             </div>
         </div>
 
@@ -961,14 +1144,22 @@ document.getElementById('countdownTimer').innerHTML =
         <div class="faq-item">
             <button class="faq-question">What is PantyCoin AI? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
-                <p>PantyCoin AI is the natural evolution of PantyCoin, combining artificial intelligence with blockchain technology to revolutionize how people buy, sell, and interact in the used panty marketplace. It offers anonymous, secure, and efficient transactions with a touch of humor.</p>
+                <p>PantyCoin AI is the natural evolution of PantyCoin, 
+combining artificial intelligence with blockchain technology to 
+revolutionize how people buy, sell, and interact in the used panty 
+marketplace. It offers anonymous, secure, and efficient transactions 
+with a touch of humor.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">Why pair AI with blockchain for this market? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
-                <p>Integrating AI with blockchain ensures a tailored and user-friendly experience by matching buyers and sellers based on preferences, optimizing eco-friendly options, and streamlining transactions. This combination provides enhanced security, anonymity, and efficiency.</p>
+                <p>Integrating AI with blockchain ensures a tailored and
+ user-friendly experience by matching buyers and sellers based on 
+preferences, optimizing eco-friendly options, and streamlining 
+transactions. This combination provides enhanced security, anonymity, 
+and efficiency.</p>
             </div>
         </div>
 
@@ -976,19 +1167,22 @@ document.getElementById('countdownTimer').innerHTML =
             <button class="faq-question">Who are the faces of PantyCoin AI? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
                 <p>The PantyVerse features three iconic characters:
-                    <ul>
+                    </p><ul>
                         <li><strong>Mr. Panty:</strong> The blockchain maestro with a flair for elegant intimacy.</li>
                         <li><strong>Miss Panty:</strong> A visionary entrepreneur setting trends in AI-driven finance.</li>
                         <li><strong>Mx. Panty:</strong> The non-binary face of inclusivity, technology, and sass.</li>
                     </ul>
-                </p>
+                <p></p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">Is PantyCoin AI a joke? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
-                <p>While PantyCoin AI embraces humor, the technology behind it is serious. It offers AI matching for personalized pairings, blockchain privacy with zk-SNARKs, smart contracts for secure transactions, and sustainability features driven by AI insights.</p>
+                <p>While PantyCoin AI embraces humor, the technology 
+behind it is serious. It offers AI matching for personalized pairings, 
+blockchain privacy with zk-SNARKs, smart contracts for secure 
+transactions, and sustainability features driven by AI insights.</p>
             </div>
         </div>
 
@@ -996,20 +1190,23 @@ document.getElementById('countdownTimer').innerHTML =
             <button class="faq-question">How does PantyCoin AI work? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
                 <p>PantyCoin AI operates in four simple steps:
-                    <ol>
+                    </p><ol>
                         <li><strong>Discover:</strong> AI connects buyers and sellers based on preferences.</li>
                         <li><strong>Transact:</strong> Blockchain secures and anonymizes the payment process.</li>
                         <li><strong>Ship:</strong> The product is delivered with complete discretion.</li>
                         <li><strong>Review:</strong> AI improves the experience with feedback loops.</li>
                     </ol>
-                </p>
+                <p></p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">What sets PantyCoin AI apart from other crypto projects? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
-                <p>Unlike other memecoins, PantyCoin AI combines utility with humor. It integrates cutting-edge AI, real-world applications, and a commitment to privacy, sustainability, and inclusivity, going beyond mere speculative trading.</p>
+                <p>Unlike other memecoins, PantyCoin AI combines utility
+ with humor. It integrates cutting-edge AI, real-world applications, and
+ a commitment to privacy, sustainability, and inclusivity, going beyond 
+mere speculative trading.</p>
             </div>
         </div>
 
@@ -1017,19 +1214,22 @@ document.getElementById('countdownTimer').innerHTML =
             <button class="faq-question">How does PantyCoin AI protect privacy? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
                 <p>PantyCoin AI prioritizes user privacy through:
-                    <ul>
+                    </p><ul>
                         <li><strong>Zero-Knowledge Proofs:</strong> Ensuring confidential transactions without revealing personal data.</li>
                         <li><strong>Decentralized Wallets:</strong> Allowing trades without linking to real-world identities.</li>
                         <li><strong>Secure Blockchain:</strong> Providing transparency without compromising discretion.</li>
                     </ul>
-                </p>
+                <p></p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">How does PantyCoin contribute to sustainability? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
-                <p>PantyCoin champions sustainability by promoting the circular economy. Each transaction prevents textile waste by recycling intimate apparel, saving resources like cotton, water, and energy. Join us in reducing the global carbon footprint—one panty at a time!</p>
+                <p>PantyCoin champions sustainability by promoting the 
+circular economy. Each transaction prevents textile waste by recycling 
+intimate apparel, saving resources like cotton, water, and energy. Join 
+us in reducing the global carbon footprint—one panty at a time!</p>
             </div>
         </div>
 
@@ -1037,12 +1237,12 @@ document.getElementById('countdownTimer').innerHTML =
             <button class="faq-question">What is PantyCoin’s AI vision? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
                 <p>PantyCoin integrates AI to revolutionize how intimate apparel is traded, tracked, and personalized. Our vision includes:
-                    <ul>
+                    </p><ul>
                         <li><strong>Personalized Recommendations:</strong> AI-driven algorithms to match buyers with unique items based on their preferences and past transactions.</li>
                         <li><strong>Fraud Prevention:</strong> Advanced AI models to ensure authenticity and eliminate counterfeit trades.</li>
                         <li><strong>Dynamic Pricing:</strong> Real-time analytics to suggest optimal pricing for buyers and sellers, creating a fair and efficient marketplace.</li>
                     </ul>
-                </p>
+                <p></p>
             </div>
         </div>
 
@@ -1050,12 +1250,15 @@ document.getElementById('countdownTimer').innerHTML =
             <button class="faq-question">How does AI enhance the PantyCoin ecosystem? <span class="toggle-icon">+</span></button>
             <div class="faq-answer">
                 <p>AI is central to PantyCoin’s mission of creating a seamless, intelligent ecosystem. Key enhancements include:
-                    <ul>
+                    </p><ul>
                         <li><strong>Blockchain Optimization:</strong> AI-powered solutions for faster, more secure transactions.</li>
                         <li><strong>Community Insights:</strong> Using AI to analyze user feedback and trends, ensuring the platform evolves with its community.</li>
-                        <li><strong>Sustainability Analytics:</strong> AI tools to calculate and report the environmental impact of each transaction, reinforcing PantyCoin’s commitment to eco-friendly practices.</li>
+                        <li><strong>Sustainability Analytics:</strong> 
+AI tools to calculate and report the environmental impact of each 
+transaction, reinforcing PantyCoin’s commitment to eco-friendly 
+practices.</li>
                     </ul>
-                </p>
+                <p></p>
             </div>
         </div>
 
@@ -1148,10 +1351,12 @@ document.getElementById('countdownTimer').innerHTML =
  <section id="whitepaper" style="background-color: black; padding: 30px; border: 1px solid #f78da7; border-radius: 10px; margin-top: 30px;">
       <h2 style="text-align: center; color: white; font-size: 2em; margin-bottom: 20px;">Original PantyCoin White Paper</h2>
       <p style="text-align: center; color: #444; font-size: 1.2em;">
-        Want to dive deeper into the vision and technical details of PantyCoin? Our white paper has all the juicy details, from market insights to tokenomics and privacy innovations.
+        Want to dive deeper into the vision and technical details of 
+PantyCoin? Our white paper has all the juicy details, from market 
+insights to tokenomics and privacy innovations.
       </p>
       <div style="text-align: center; margin-top: 20px;">
-        <a href="pantycoin-whitepaper.pdf" target="_blank" style="background-color: #f78da7; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 1.2em;">
+        <a href="https://pantycoin.club/pantycoin-whitepaper.pdf" target="_blank" style="background-color: #f78da7; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 1.2em;">
           Read the White Paper
         </a>
       </div>
@@ -1179,12 +1384,13 @@ document.getElementById('countdownTimer').innerHTML =
     </section>
 
     <footer>
-        <p>&copy; 2025 PantyCoin AI. All Rights Reserved.</p>
+        <p>© 2025 PantyCoin AI. All Rights Reserved.</p>
     </footer>
 
 
 
-</body>
-</html>
 
 
+
+
+</div></section></body></html>
